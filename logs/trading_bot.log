@@ -1,0 +1,20 @@
+==============================
+===== ORDER SUMMARY =====
+Symbol   : BTCUSDT
+Side     : BUY
+Type     : MARKET
+Quantity : 0.002
+2026-02-26 13:08:08,697 | INFO | bot.client | Initializing Binance Futures Testnet client
+2026-02-26 13:08:10,037 | INFO | bot.client | Timestamp synchronized with Binance server
+2026-02-26 13:08:10,038 | INFO | bot.orders | Built order params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.002}
+2026-02-26 13:08:10,039 | INFO | bot.client | Placing order: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.002}
+2026-02-26 13:08:11,045 | INFO | bot.client | Order response: {'orderId': 12548981604, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ3776a147d65a6a8131e633', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.002', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1772091488917}
+
+===== ORDER RESPONSE =====
+Order ID     : 12548981604
+Status       : NEW
+Executed Qty : 0.000
+Avg Price    : 0.00
+
+
+✅ Order placed successfully
