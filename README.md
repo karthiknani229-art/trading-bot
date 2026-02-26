@@ -77,14 +77,13 @@ pip install -r requirements.txt
 ▶ How to Run
 
 All commands must be executed from the project root.
+MARKET Order Exmaple
+pyhton cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0002 LIMIT Order Exmaple
+pyhton cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0002 --price 90000
+Example CLI Output
 
- MARKET Order Example
-python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.002 LIMIT Order Example
-python cli.py --symbol BTCUSDT --side SELL --type LIMIT --quantity 0.002 --price 90000
-💻 Example CLI Output
-==============================
 ===== ORDER SUMMARY =====
-==============================
+
 Symbol   : BTCUSDT
 Side     : BUY
 Type     : MARKET
