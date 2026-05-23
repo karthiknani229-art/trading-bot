@@ -1,89 +1,100 @@
- Binance Futures Testnet Trading Bot
+# Binance Futures Testnet Trading Bot
 
-A clean, modular Python CLI application that places MARKET and LIMIT orders on the Binance USDT-M Futures Testnet with structured logging, robust validation, and production-style architecture.
+A modular Python CLI application that places MARKET and LIMIT orders on the Binance USDT-M Futures Testnet with structured logging, robust validation, and production-style architecture.
 
-This project was built as part of the Python Developer Internship assignment.
+> All orders are placed on the Binance Testnet only — no real funds are used.
 
- Overview
+## Tech Stack
 
-This trading bot demonstrates:
+**Language:** Python 3.9+
 
-Proper separation of concerns
+**Libraries:** argparse, python-binance, python-dotenv
 
-Robust CLI input validation
+**Logging:** File + console structured logging
 
-Structured logging to file and console
+## Features
 
-Error handling for API and network failures
+- Place MARKET and LIMIT orders (BUY and SELL)
+- CLI-based input via argparse
+- Strong input validation for all parameters
+- Automatic Binance timestamp synchronization
+- Structured logging to file and console
+- Modular production-style architecture
 
-Successful order placement on Binance Futures Testnet
+## Project Structure
 
-The bot interacts only with the testnet environment — no real funds are used.
-
- Features
-
- Place MARKET orders
-
- Place LIMIT orders
-
- Supports BUY and SELL
-
- CLI-based user input (argparse)
-
- Strong input validation
-
- Structured logging
-
- Automatic Binance timestamp synchronization
-
- Modular, production-style code
-
- Project Structure
+```
 trading_bot/
 │
 ├── bot/
-│   ├── __init__.py
-│   ├── client.py          # Binance Futures client wrapper
-│   ├── orders.py          # Order building & formatting
-│   ├── validators.py      # Input validation
-│   └── logging_config.py  # Logging setup
+│   ├── client.py           # Binance Futures client wrapper
+│   ├── orders.py           # Order building and formatting
+│   ├── validators.py       # Input validation
+│   └── logging_config.py   # Logging setup
 │
-├── cli.py                 # CLI entry point
+├── cli.py                  # CLI entry point
 ├── requirements.txt
-├── README.md
 └── logs/
- Requirements
+```
 
-Python 3.9+
+## Setup
 
-Binance Futures Testnet account
+**1. Clone the repository**
 
-Testnet API Key & Secret
+```bash
+git clone https://github.com/karthiknani229-art/trading-bot.git
+cd trading-bot
+```
 
- Environment Setup
+**2. Create and activate virtual environment**
 
-Create a .env file in the project root:
-
-BINANCE_API_KEY=your_api_key_here
-BINANCE_API_SECRET=your_api_secret_here
-
-
-PowerShell
-
+```bash
 python -m venv venv
+
+# Windows
 .\venv\Scripts\Activate.ps1
-3 Install dependencies
+
+# Mac/Linux
+source venv/bin/activate
+```
+
+**3. Install dependencies**
+
+```bash
 pip install -r requirements.txt
-▶ How to Run
+```
 
-All commands must be executed from the project root.
-MARKET Order Exmaple
-pyhton cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0002 LIMIT Order Exmaple
-pyhton cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0002 --price 90000
-Example CLI Output
+**4. Configure environment**
 
+Create a `.env` file in the project root:
+
+```
+BINANCE_API_KEY=your_testnet_api_key
+BINANCE_API_SECRET=your_testnet_api_secret
+```
+
+Get your testnet API keys from: https://testnet.binancefuture.com
+
+## Usage
+
+All commands run from the project root.
+
+**MARKET order:**
+
+```bash
+python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.002
+```
+
+**LIMIT order:**
+
+```bash
+python cli.py --symbol BTCUSDT --side BUY --type LIMIT --quantity 0.002 --price 90000
+```
+
+**Example output:**
+
+```
 ===== ORDER SUMMARY =====
-
 Symbol   : BTCUSDT
 Side     : BUY
 Type     : MARKET
@@ -94,63 +105,25 @@ Order ID     : 12345678
 Status       : NEW
 Executed Qty : 0.000
 Avg Price    : 0.00
-Logging
+```
 
-Logs are automatically written to:
+## Logging
 
-logs/trading_bot.log
+Logs are written to `logs/trading_bot.log` and include order request details, Binance API responses, and error traces.
 
-The log file contains:
+## Validation & Error Handling
 
-Order request details
+Validates: symbol, side (BUY/SELL), order type (MARKET/LIMIT), quantity > 0, price required for LIMIT orders.
 
-Binance API responses
+Handles: invalid CLI input, Binance API errors, timestamp drift, and network failures.
 
-Error traces
+## Assumptions
 
- Includes evidence of:
+- Orders placed on Binance USDT-M Futures Testnet only
+- Minimum notional requirements enforced by Binance
+- LIMIT orders may stay in NEW status if price is not reached
+- MARKET orders on testnet may briefly show NEW before fill
 
-one MARKET order
+## Author
 
-one LIMIT order
-
-(as required by the assignment)
-
- Validation & Error Handling
-
-The application validates:
-
-symbol presence
-
-side (BUY/SELL)
-
-order type (MARKET/LIMIT)
-
-quantity > 0
-
-price required for LIMIT
-
-Handled failures include:
-
-invalid CLI input
-
-Binance API errors
-
-timestamp drift
-
-network issues
-
- Assumptions
-
-Orders are placed on Binance USDT-M Futures Testnet
-
-Minimum notional requirements are enforced by Binance
-
-LIMIT orders may remain in NEW status if price is not reached
-
-MARKET orders on testnet may briefly show NEW before fill
-
-
- Author
-
-Penta Karthik
+Penta Karthik — [GitHub](https://github.com/karthiknani229-art)
